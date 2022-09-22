@@ -2,7 +2,7 @@ homepage: "https://trafficguard.ai/"
 documentation: "https://help.trafficguard.ai/en/knowledge"
 versions:
   # Latest version
-  - sha: 0cb842d4fad6bc163a24e78f45d9dcebfbf7d9d6
+  - sha: 2a1791eaeb349f608a5fd452bdb8aaa99b1447ce
     changeNotes: Implement support for integration parameters.
   # Older versions
   - sha: 152f000b42376a2a8344b0ad58dfdc97f0506cbf
