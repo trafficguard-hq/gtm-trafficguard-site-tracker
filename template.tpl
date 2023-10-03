@@ -85,6 +85,7 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 // Enter your template code here.
 const log = require('logToConsole');
 const createQueue = require('createQueue');
+const sendPixel = require('sendPixel');
 const injectScript = require('injectScript');
 const encodeUriComponent = require("encodeUriComponent");
 const copyFromWindow = require('copyFromWindow');
@@ -96,10 +97,12 @@ const isArray = arr => callInWindow('toString.call', arr) === '[object Array]';
 
 const dataTrafficGuard = copyFromWindow('dataTrafficGuard');
 const url = 'https://tgtag.io/tg.js?';
+const pixelUrlTemplate = 'https://lh.trafficguard.ai/pixel.png?event=pageview&pid=';
 const pid = "pid=";
 const pgid = "pgid=";
 var scriptUrl = "";
 var scriptIntegrationParamters = {};
+var pixelUrl = '';
 
 if (!isArray(dataTrafficGuard)) {
 setInWindow('dataTrafficGuard', dataTrafficGuard ? [dataTrafficGuard] : [], true);
@@ -113,7 +116,11 @@ scriptIntegrationParamters[key] = value;
 }
 }
 
+// build and send pixel event for pageview
+pixelUrl = pixelUrlTemplate + propertyIdentifier;
+sendPixel(pixelUrl, data.gtmOnSuccess, data.gtmOnFailure);
 
+log('pixelUrl: ' + pixelUrl);
 
 // property group id starts with tg-g
 if (propertyIdentifier.indexOf('tg-g') > -1) {
@@ -363,6 +370,39 @@ ___WEB_PERMISSIONS___
 {
 "type": 1,
 "string": "https://*.tgtag.io/"
+}
+]
+}
+}
+]
+},
+"clientAnnotations": {
+"isEditedByUser": true
+},
+"isRequired": true
+},
+{
+"instance": {
+"key": {
+"publicId": "send_pixel",
+"versionId": "1"
+},
+"param": [
+{
+"key": "allowedUrls",
+"value": {
+"type": 1,
+"string": "specific"
+}
+},
+{
+"key": "urls",
+"value": {
+"type": 2,
+"listItem": [
+{
+"type": 1,
+"string": "https://lh.trafficguard.ai/"
 }
 ]
 }
