@@ -2,7 +2,7 @@ homepage: "https://trafficguard.ai/"
 documentation: "https://help.trafficguard.ai/en/knowledge"
 versions:
   # Latest version
-  - sha:
+  - sha: a126efc0b0b47b55b715b16d7f3282286ec9c653
     changeNotes: Implement support for tracking pixel.
   # Older versions
   - sha: 2a1791eaeb349f608a5fd452bdb8aaa99b1447ce
