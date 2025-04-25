@@ -2,9 +2,11 @@ homepage: "https://trafficguard.ai/"
 documentation: "https://help.trafficguard.ai/en/knowledge"
 versions:
   # Latest version
+  - sha: 77ef71164edc840314fb94a69a1a431afb15aff0
+    changeNotes: Update pixel tracker feature.
+  # Older versions
   - sha: a126efc0b0b47b55b715b16d7f3282286ec9c653
     changeNotes: Implement support for tracking pixel.
-  # Older versions
   - sha: 2a1791eaeb349f608a5fd452bdb8aaa99b1447ce
     changeNotes: Implement support for integration parameters.
   - sha: 152f000b42376a2a8344b0ad58dfdc97f0506cbf
